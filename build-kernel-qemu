@@ -133,6 +133,8 @@ if [ $USB_WEBCAM_MODULES ] ; then
     make -j 4 -k ARCH=arm CROSS_COMPILE=${TOOLCHAIN}- \
         INSTALL_MOD_PATH=$MODULES_INSTALL_PATH modules_install
     echo "Copy modules to Raspberry to /lib/modules/$KERNEL_VERSION"
+    make -j 4 -k ARCH=arm CROSS_COMPILE=${TOOLCHAIN}- dtbs
+    cp arch/arm/boot/dts/versatile-pb.dts ../versatile-pb.dts
 fi
 
 cd ..
